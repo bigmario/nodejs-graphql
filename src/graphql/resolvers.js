@@ -1,4 +1,4 @@
-const { allProducts, product } = require('./product.resolver');
+const { addProduct, allProducts, product } = require('./product.resolver');
 const { allUsers, user } = require('./user.resolver');
 
 const resolvers = {
@@ -8,6 +8,9 @@ const resolvers = {
     user,
     allProducts,
     product
+  },
+  Mutation: {
+    addProduct
   }
 }
 
