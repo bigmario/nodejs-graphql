@@ -1,0 +1,22 @@
+type Query {
+    hello: String
+    user(id: ID!): User
+    allUsers: [User!]!
+    product(id: ID!): Product
+    allProducts: [Product!]!
+  }
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  price: Float!
+  description: String!
+  image: String!
+  createdAt: String!
+}
