@@ -20,7 +20,13 @@ const allCategories = async () => {
   return categories
 }
 
+const category = async (_, { id }) => {
+  const category = await categoryService.findOne(id)
+  return category
+}
+
 module.exports = {
   addCategory,
+  category,
   allCategories
 }

@@ -1,10 +1,10 @@
 const { addProduct, allProducts, product, updateProduct, deleteProduct } = require('./product.resolver');
 const { allUsers, user } = require('./user.resolver');
 const { login } = require('./auth.resolver')
-const { addCategory, allCategories } = require('./category.resolver')
+const { addCategory, allCategories, category } = require('./category.resolver')
 const { RegularExpression } = require('graphql-scalars')
 
-const CategoryNameType = new RegularExpression('CategoryNameType', /^[a-zA-Z0-9]{3,8}$/ )
+const CategoryNameType = new RegularExpression('CategoryNameType', /^[a-zA-Z0-9 ]{3,100}$/ )
 
 const resolvers = {
   Query: {
@@ -13,7 +13,8 @@ const resolvers = {
     user,
     allProducts,
     product,
-    allCategories
+    allCategories,
+    category
   },
   Mutation: {
     login,

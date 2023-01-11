@@ -1,9 +1,12 @@
+scalar CategoryNameType
+
 type Query {
     hello: String
     user(id: ID!): User
     allUsers: [User!]!
     product(id: ID!): Product
     allProducts: [Product!]!
+    category(id: ID!): Category
     allCategories: [Category!]!
 }
 
@@ -24,7 +27,7 @@ input UpdateProductDto {
 }
 
 input CreateCategoryDto {
-  name: String!
+  name: CategoryNameType!
   image: URL!
 }
 
@@ -70,5 +73,3 @@ type User {
   role: String!
   createdAt: String!
 }
-
-scalar CategoryNameType
