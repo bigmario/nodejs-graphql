@@ -9,7 +9,10 @@ const categoryService = new CategoryService()
 const addCategory = async (_, { dto }, context) => {
   const user = await checkJWTGql(context)
   checkRolesGql(user, 'admin')
-  return categoryService.create(dto)
+  return categoryService.create({
+    ...dto,
+    image: dto.image.href
+  })
 }
 
 const allCategories = async () => {

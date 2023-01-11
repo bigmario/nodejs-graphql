@@ -2,6 +2,9 @@ const { addProduct, allProducts, product, updateProduct, deleteProduct } = requi
 const { allUsers, user } = require('./user.resolver');
 const { login } = require('./auth.resolver')
 const { addCategory, allCategories } = require('./category.resolver')
+const { RegularExpression } = require('graphql-scalars')
+
+const CategoryNameType = new RegularExpression('CategoryNameType', /^[a-zA-Z0-9]{3,8}$/ )
 
 const resolvers = {
   Query: {
@@ -18,7 +21,8 @@ const resolvers = {
     updateProduct,
     deleteProduct,
     addCategory
-  }
+  },
+  CategoryNameType
 }
 
 module.exports = resolvers
