@@ -4,6 +4,7 @@ type Query {
     allUsers: [User!]!
     product(id: ID!): Product
     allProducts: [Product!]!
+    allCategories: [Category!]!
 }
 
 input CreateProductDto {
@@ -22,11 +23,17 @@ input UpdateProductDto {
   categoryId: ID
 }
 
+input CreateCategoryDto {
+  name: String!
+  image: String!
+}
+
 type Mutation {
   login(email: String!, password: String!): AuthResponse
   addProduct(dto: CreateProductDto): Product!
   updateProduct(id: ID!, dto: UpdateProductDto!): Product
   deleteProduct(id: ID!): ID
+  addCategory(dto: CreateCategoryDto): Category!
 }
 
 type User {

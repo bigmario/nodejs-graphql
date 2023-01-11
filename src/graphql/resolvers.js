@@ -1,6 +1,7 @@
 const { addProduct, allProducts, product, updateProduct, deleteProduct } = require('./product.resolver');
 const { allUsers, user } = require('./user.resolver');
 const { login } = require('./auth.resolver')
+const { addCategory, allCategories } = require('./category.resolver')
 
 const resolvers = {
   Query: {
@@ -8,13 +9,15 @@ const resolvers = {
     allUsers,
     user,
     allProducts,
-    product
+    product,
+    allCategories
   },
   Mutation: {
     login,
     addProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    addCategory
   }
 }
 
