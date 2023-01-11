@@ -60,6 +60,7 @@ type Category {
   id: ID!
   name: CategoryNameType!
   image: URL!
+  products: [Product!]!
 }
 
 type AuthResponse {

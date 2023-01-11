@@ -24,10 +24,17 @@ const deleteProduct = async (_, { id }) => {
   return id
 }
 
+const productsByCategory = async (parent) => {
+  const id = parent.id;
+  const products = await productService.findByCategoryId(id)
+  return products
+}
+
 module.exports = {
   allProducts,
   product,
   addProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  productsByCategory
 }
