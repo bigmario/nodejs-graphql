@@ -7,18 +7,27 @@ const allProducts = async () => {
   return products
 }
 
-const product = async (_, args) => {
-  const product = await productService.findOne(args.id)
-  return product
+const product = (_, args) => {
+  return productService.findOne(args.id)
 }
 
-const addProduct = async (_, { dto }) => {
-  const newProduct = await productService.create(dto)
-  return newProduct
+const addProduct = (_, { dto }) => {
+  return productService.create(dto)
+}
+
+const updateProduct = (_, { id, dto }) => {
+  return productService.update(id, dto)
+}
+
+const deleteProduct = async (_, { id }) => {
+  await productService.delete(id)
+  return id
 }
 
 module.exports = {
   allProducts,
   product,
-  addProduct
+  addProduct,
+  updateProduct,
+  deleteProduct
 }
